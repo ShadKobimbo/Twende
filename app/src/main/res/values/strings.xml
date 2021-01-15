@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Twende</string>
+    <string name="repository_name">Repository Name</string>
+    <string name="repository_description">Repository Description Goes Here</string>
 </resources>
