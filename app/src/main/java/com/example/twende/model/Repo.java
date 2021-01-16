@@ -7,15 +7,22 @@ public class Repo {
     private String stars;
     private String watchers;
     private String forks;
+    private String language;
+    private String created_at;
+    private String html_url;
 
 
-    public Repo(String name, String description, String stars, String watchers, String forks) {
+
+    public Repo(String name, String description, String stars, String watchers, String forks, String language, String created_at, String html_url) {
 
         this.name = name;
         this.description = description;
         this.stars = stars;
         this.watchers = watchers;
         this.forks = forks;
+        this.language = language;
+        this.created_at = created_at;
+        this.html_url = html_url;
 
     }
 
@@ -59,4 +66,27 @@ public class Repo {
         this.forks = forks;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getHtml_url() {
+        return html_url;
+    }
+
+    public void setHtml_url(String html_url) {
+        this.html_url = html_url;
+    }
 }

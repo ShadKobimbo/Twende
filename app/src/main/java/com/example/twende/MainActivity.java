@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout constraintLayout;
 
     static Context context = null;
+
+    ProgressDialog pd;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -79,12 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     reposArrayList = response.body().getRepo();
                     initRecyclerView(reposArrayList);
-
+                    pd.hide();
                 } else {
 
                     Toast.makeText(MainActivity.this,
                             "Request not Successful",
                             Toast.LENGTH_SHORT).show();
+                    pd.hide();
                 }
             }
 
@@ -100,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
 
+        pd = new ProgressDialog(this);
+        pd.setMessage("Fetching Github Data...");
+        pd.setCancelable(false);
+        pd.show();
+
         recycler = findViewById(R.id.rv_top_repositories);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -111,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void onItemClick(String name, String description, String forks, String stars, String watchers) {
+    public static void onItemClick(String name, String description, String forks, String stars, String watchers, String language, String created_at, String html_url) {
 
         Intent intent = new Intent(context, RepositoryActivity.class);
 
@@ -120,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("repo_forks", forks);
         intent.putExtra("repo_stars", stars);
         intent.putExtra("repo_watchers", watchers);
+        intent.putExtra("repo_language", language);
+        intent.putExtra("repo_created_at", created_at);
+        intent.putExtra("repo_url", html_url);
 
         context.startActivity(intent);
     }

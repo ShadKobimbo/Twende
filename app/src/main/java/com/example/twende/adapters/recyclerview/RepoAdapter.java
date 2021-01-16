@@ -19,7 +19,7 @@ import java.util.List;
 
 public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
 
-    private static final String TAG = "CategoryAdapter";
+    private static final String TAG = "RepoAdapter";
 
     private List<Repo> repos;
     private Context mCtx;
@@ -49,7 +49,7 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
             public void onClick(View view) {
 
                 //Toast.makeText(mCtx, repo.get_name(), Toast.LENGTH_SHORT).show();
-                MainActivity.onItemClick(repo.getName(), repo.getDescription(), repo.getForks(), repo.getStars(), repo.getWatchers());
+                MainActivity.onItemClick(repo.getName(), repo.getDescription(), repo.getForks(), repo.getStars(), repo.getWatchers(), repo.getLanguage(), repo.getCreated_at(), repo.getHtml_url());
 
             }
         });

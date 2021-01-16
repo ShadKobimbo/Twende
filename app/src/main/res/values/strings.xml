@@ -5,6 +5,12 @@
     <string name="watchers">Watchers</string>
     <string name="forks">Forks</string>
     <string name="stars">Stars</string>
-    <string name="medium_lorem_ipsum">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin         \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin"</string>
+    <string name="medium_lorem_ipsum">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin</string>
     <string name="description">Description</string>
+    <string name="language">Language</string>
+    <string name="created_at">Created On</string>
+    <string name="url">URL</string>
+    <string name="android">Android</string>
+    <string name="date">2014-12-24T17:49:19Z</string>
+    <string name="url_sample">https://api.github.com/repos/</string>
 </resources>
