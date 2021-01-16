@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestApiBuilder {
 
-    public static final String BASE_URL = "https://api.github.com";
+    public static final String BASE_URL = "https://api.github.com/";
 
     private Retrofit retrofit;
 

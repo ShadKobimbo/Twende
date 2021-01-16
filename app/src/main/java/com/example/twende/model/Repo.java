@@ -1,35 +1,30 @@
 package com.example.twende.model;
 
-import androidx.annotation.NonNull;
+public class Repo {
 
-import java.util.ArrayList;
-import java.util.stream.Stream;
-
-public class Repo extends ArrayList<Repo> {
-
-    private String repo_name;
+    private String name;
     private String description;
     private String stars;
     private String watchers;
     private String forks;
 
 
-    public Repo(String repo_name, String description, String stars, String watchers, String forks) {
+    public Repo(String name, String description, String stars, String watchers, String forks) {
 
-        this.repo_name = repo_name;
+        this.name = name;
         this.description = description;
-        this.description = stars;
-        this.description = watchers;
-        this.description = forks;
+        this.stars = stars;
+        this.watchers = watchers;
+        this.forks = forks;
 
     }
 
-    public String getRepo_name() {
-        return repo_name;
+    public String getName() {
+        return name;
     }
 
-    public void setRepo_name(String repo_name) {
-        this.repo_name = repo_name;
+    public void set_name(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -64,9 +59,4 @@ public class Repo extends ArrayList<Repo> {
         this.forks = forks;
     }
 
-    @NonNull
-    @Override
-    public Stream<Repo> stream() {
-        return null;
-    }
 }

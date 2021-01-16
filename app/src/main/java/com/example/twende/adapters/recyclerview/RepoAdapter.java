@@ -10,19 +10,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.twende.MainActivity;
 import com.example.twende.R;
 import com.example.twende.model.Repo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
 
     private static final String TAG = "CategoryAdapter";
 
-    private ArrayList<Repo> repos;
+    private List<Repo> repos;
     private Context mCtx;
 
-    public RepoAdapter(android.content.Context mCtx, ArrayList<Repo> repos ) {
+    public RepoAdapter(Context mCtx, List repos ) {
         this.repos = repos;
         this.mCtx = mCtx;
     }
@@ -46,7 +48,8 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(mCtx, repo.getRepo_name(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mCtx, repo.get_name(), Toast.LENGTH_SHORT).show();
+                MainActivity.onItemClick(repo.getName(), repo.getDescription(), repo.getForks(), repo.getStars(), repo.getWatchers());
 
             }
         });
@@ -61,17 +64,21 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView repoName;
+        public TextView repoDescription;
+
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             repoName = itemView.findViewById(R.id.repoName);
+            repoDescription = itemView.findViewById(R.id.repoDescription);
 
         }
 
         void setDetails(Repo repo) {
 
-            repoName.setText(repo.getRepo_name());
+            repoName.setText(repo.getName());
+            repoDescription.setText(repo.getDescription());
 
         }
     }
