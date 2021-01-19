@@ -80,6 +80,9 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
             repoDescription = itemView.findViewById(R.id.repoDescription);
             fab = itemView.findViewById(R.id.floatingActionButtonItem);
 
+            fab.setOnClickListener( view -> {
+
+            });
         }
 
         void setDetails(Repo repo) {

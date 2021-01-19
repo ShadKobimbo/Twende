@@ -2,10 +2,10 @@ package com.example.twende;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,6 +13,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.twende.adapters.recyclerview.RepoAdapter;
@@ -32,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recycler;
     private RepoAdapter repoAdapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     public static List<Repo> reposArrayList;
-    private ConstraintLayout constraintLayout;
 
     static Context context = null;
 
@@ -46,13 +49,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        constraintLayout = (ConstraintLayout) findViewById(R.id.main_constraint_layout);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.mainSwipeContainer);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initView("refresh");
+            }
+        });
+
         context = MainActivity.this;
 
-        initView();
+        initView("regular");
 
         fetchRepoData();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
     }
 
     private void fetchRepoData() {
@@ -87,15 +104,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initView() {
+    private void initView(String status) {
 
-        pd = new ProgressDialog(this);
-        pd.setMessage("Fetching Github Data...");
-        pd.setCancelable(false);
-        pd.show();
+        if(status == "refresh"){
+            recycler = findViewById(R.id.rv_top_repositories);
+            recycler.setLayoutManager(new LinearLayoutManager(this));
+            mSwipeRefreshLayout.setRefreshing(false);
+        } else {
+            pd = new ProgressDialog(this);
+            pd.setMessage("Fetching Github Data...");
+            pd.setCancelable(false);
+            pd.show();
 
-        recycler = findViewById(R.id.rv_top_repositories);
-        recycler.setLayoutManager(new LinearLayoutManager(this));
+            recycler = findViewById(R.id.rv_top_repositories);
+            recycler.setLayoutManager(new LinearLayoutManager(this));
+        }
     }
 
     public void initRecyclerView(List setter) {
@@ -120,5 +143,25 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("repo_url", html_url);
 
         context.startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+
+            case R.id.action_favorite:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

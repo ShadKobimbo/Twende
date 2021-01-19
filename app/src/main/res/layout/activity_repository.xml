@@ -72,7 +72,7 @@
                     android:layout_marginEnd="@dimen/spacing_large"
                     android:clickable="true"
                     android:focusable="true"
-                    app:srcCompat="@drawable/ic_baseline_thumb_up_24" />
+                    app:srcCompat="@drawable/ic_baseline_favorite_24" />
 
             </LinearLayout>
 
