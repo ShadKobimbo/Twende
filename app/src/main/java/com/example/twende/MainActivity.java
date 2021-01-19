@@ -53,21 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         fetchRepoData();
 
-        // Register Callback - Call this in your app start!
-//        CheckNetwork network = new CheckNetwork(getApplicationContext());
-//        network.registerNetworkCallback();
-
-        // Check network connection
-//        if (network.registerNetworkCallback()){
-//            // Internet Connected
-//            fetchRepoData();
-//
-//        }else{
-//            // Not Connected
-//            Toast.makeText(MainActivity.this,
-//                    "Check your internet connection!!!",
-//                    Toast.LENGTH_SHORT).show();
-//        }
     }
 
     private void fetchRepoData() {

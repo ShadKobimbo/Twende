@@ -48,8 +48,6 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                     android:textColor="@color/black" />
 
-
-
             </LinearLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -63,7 +61,7 @@
                 app:srcCompat="@drawable/ic_baseline_thumb_up_24"
                 android:layout_weight="0.3"
                 android:elevation="0dp"
-                app:elevation="0dp" />
+                app:elevation="0dp"/>
 
         </LinearLayout>
 

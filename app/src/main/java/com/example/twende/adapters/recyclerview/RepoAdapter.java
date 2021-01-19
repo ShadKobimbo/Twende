@@ -47,12 +47,10 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
         final Repo repo = repos.get(position);
 
         holder.setDetails(repo);
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //Toast.makeText(mCtx, repo.get_name(), Toast.LENGTH_SHORT).show();
                 MainActivity.onItemClick(repo.getId(), repo.getName(), repo.getDescription(), repo.getForks(), repo.getStars(), repo.getWatchers(), repo.getLanguage(), repo.getCreated_at(), repo.getHtml_url());
 
             }
@@ -99,5 +97,6 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder> {
             }
 
         }
+
     }
 }
