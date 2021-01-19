@@ -2,6 +2,7 @@ package com.example.twende.model;
 
 public class Repo {
 
+    private String id;
     private String name;
     private String description;
     private String stars;
@@ -13,8 +14,9 @@ public class Repo {
 
 
 
-    public Repo(String name, String description, String stars, String watchers, String forks, String language, String created_at, String html_url) {
+    public Repo(String id, String name, String description, String stars, String watchers, String forks, String language, String created_at, String html_url) {
 
+        this.id = id;
         this.name = name;
         this.description = description;
         this.stars = stars;
@@ -24,6 +26,14 @@ public class Repo {
         this.created_at = created_at;
         this.html_url = html_url;
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void set_id(String id) {
+        this.id = id;
     }
 
     public String getName() {

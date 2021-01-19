@@ -11,37 +11,59 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/spacing_middle"
-            android:paddingLeft="@dimen/spacing_large"
-            android:paddingRight="@dimen/spacing_large"
             android:paddingTop="@dimen/spacing_middle">
 
-            <TextView
-                android:id="@+id/repoName"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/repository_name"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:layout_weight="1.7"
+                android:layout_marginEnd="@dimen/spacing_middle">
 
-            <TextView
-                android:id="@+id/repoDescription"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/repoName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repository_name"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/repoDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:maxLines="2"
+                    android:text="@string/repository_description"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/black" />
+
+
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButtonItem"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:maxLines="2"
-                android:text="@string/repository_description"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                android:textColor="@color/black" />
+                android:layout_gravity="end|bottom"
+                android:clickable="true"
+                android:focusable="true"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/ic_baseline_thumb_up_24"
+                android:layout_weight="0.3"
+                android:elevation="0dp"
+                app:elevation="0dp" />
 
         </LinearLayout>
 

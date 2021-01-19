@@ -19,40 +19,63 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/spacing_large">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="?attr/colorPrimary"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_mlarge">
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_medium">
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/avatar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/elmo"
-                    app:civ_shadow="true"
-                    app:civ_shadow_radius="0"
-                    app:civ_border="true"
-                    app:civ_border_width="3dp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
 
-                <TextView
-                    android:id="@+id/tv_name"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/elmo"
+                        app:civ_border="true"
+                        app:civ_border_width="3dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"
+                        android:layout_marginStart="@dimen/spacing_xlarge"/>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:text="@string/repository_name"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/spacing_xlarge"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButtonActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:text="@string/repository_name"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_baseline_thumb_up_24" />
 
             </LinearLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -162,8 +185,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:background="@color/grey_5"
-                android:paddingBottom="@dimen/spacing_large">
+                android:background="@color/grey_5">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"

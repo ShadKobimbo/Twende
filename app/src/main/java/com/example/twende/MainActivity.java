@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
-                if (response.isSuccessful()) {
+                if(response.isSuccessful()) {
                     reposArrayList = response.body().getRepo();
                     initRecyclerView(reposArrayList);
                     pd.hide();
@@ -120,10 +120,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void onItemClick(String name, String description, String forks, String stars, String watchers, String language, String created_at, String html_url) {
+    public static void onItemClick(String id, String name, String description, String forks, String stars, String watchers, String language, String created_at, String html_url) {
 
         Intent intent = new Intent(context, RepositoryActivity.class);
 
+        intent.putExtra("repo_id", id);
         intent.putExtra("repo_name", name);
         intent.putExtra("repo_description", description);
         intent.putExtra("repo_forks", forks);
