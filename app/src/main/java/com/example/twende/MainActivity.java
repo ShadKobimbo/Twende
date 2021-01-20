@@ -24,7 +24,6 @@ import com.example.twende.api.RestApiBuilder;
 import com.example.twende.model.Repo;
 import com.example.twende.model.Result;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,12 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recycler;
     private RepoAdapter repoAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private ProgressDialog progressDialog;
 
     public static List<Repo> reposArrayList;
 
     static Context context = null;
-
-    ProgressDialog pd;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -84,13 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     reposArrayList = response.body().getRepo();
                     initRecyclerView(reposArrayList);
-                    pd.hide();
+                    progressDialog.hide();
                 } else {
 
                     Toast.makeText(MainActivity.this,
                             "Request not Successful",
                             Toast.LENGTH_SHORT).show();
-                    pd.hide();
+                    progressDialog.hide();
                 }
             }
 
@@ -111,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
             recycler.setLayoutManager(new LinearLayoutManager(this));
             mSwipeRefreshLayout.setRefreshing(false);
         } else {
-            pd = new ProgressDialog(this);
-            pd.setMessage("Fetching Github Data...");
-            pd.setCancelable(false);
-            pd.show();
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Fetching Github Data...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
 
             recycler = findViewById(R.id.rv_top_repositories);
             recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -153,8 +151,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_favorite:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                // User chose the "Favorite" action...
+                Intent i = new Intent(this, FavoritesActivity.class);
+                this.startActivity(i);
+
                 return true;
 
             default:

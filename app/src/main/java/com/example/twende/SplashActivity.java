@@ -19,13 +19,8 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i = new Intent(SplashActivity.this, MainActivity.class);
-                //Intent is used to switch from one activity to another.
-
                 SplashActivity.this.startActivity(i);
-                //invoke the SecondActivity.
-
                 SplashActivity.this.finish();
-                //the current activity will get finished.
             }
         }, SPLASH_TIME_OUT);
     }

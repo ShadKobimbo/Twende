@@ -8,6 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.twende.model.FavoritesModel;
+
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DBHelper";
@@ -59,5 +63,30 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public ArrayList<FavoritesModel> readFavoritesData() {
+
+        ArrayList<FavoritesModel> repoArrayList = new ArrayList<>();
+
+        SQLiteDatabase favoritesDB = this.getWritableDatabase();
+        Cursor cursor = favoritesDB.rawQuery("SELECT * FROM favorites", null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+
+                String repo_id = cursor.getString(1);
+                String repo_name = cursor.getString(2);
+                String repo_description = cursor.getString(3);
+
+                FavoritesModel repoModel = new FavoritesModel(repo_id,repo_name, repo_description);
+
+                repoArrayList.add(repoModel);
+
+            }while (cursor.moveToNext());
+        }
+
+        return repoArrayList;
     }
 }

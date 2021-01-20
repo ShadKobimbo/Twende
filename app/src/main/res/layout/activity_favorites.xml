@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainSwipeContainer"
+    android:id="@+id/favoritesSwipeContainer"
     android:background="@color/grey_5"
-    tools:context=".MainActivity">
+    tools:context=".FavoritesActivity">
 
     <ScrollView
-        android:id="@+id/sv_top_repositories"
+        android:id="@+id/sv_local_repositories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="468dp"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_top_repositories"
+            android:id="@+id/rv_local_repositories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/grey_5"
