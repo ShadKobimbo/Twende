@@ -1,4 +1,4 @@
-package com.example.twende;
+package com.example.twende.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.twende.R;
 import com.example.twende.adapters.recyclerview.RepoAdapter;
 import com.example.twende.api.GitHubAPIService;
 import com.example.twende.api.RestApiBuilder;

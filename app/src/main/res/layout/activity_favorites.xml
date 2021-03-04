@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/favoritesSwipeContainer"
     android:background="@color/grey_5"
-    tools:context=".FavoritesActivity">
+    tools:context=".activities.FavoritesActivity">
 
     <ScrollView
         android:id="@+id/sv_local_repositories"

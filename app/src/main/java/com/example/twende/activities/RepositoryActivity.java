@@ -1,22 +1,18 @@
-package com.example.twende;
+package com.example.twende.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.core.content.ContextCompat;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 
+import com.example.twende.R;
 import com.example.twende.database.DBHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

@@ -1,4 +1,4 @@
-package com.example.twende;
+package com.example.twende.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
+import com.example.twende.R;
 import com.example.twende.adapters.recyclerview.FavoritesAdapter;
 import com.example.twende.adapters.recyclerview.RepoAdapter;
 import com.example.twende.database.DBHelper;

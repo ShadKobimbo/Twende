@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.twende.MainActivity;
+import com.example.twende.activities.MainActivity;
 import com.example.twende.R;
 import com.example.twende.database.DBHelper;
 import com.example.twende.model.Repo;
